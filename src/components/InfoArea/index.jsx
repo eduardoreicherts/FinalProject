@@ -1,5 +1,5 @@
 import { formatCurrentMonth } from "../../helpers/dateFilter";
-import ResumeItem from "../ResumeItem";
+import {ResumeItem} from "../ResumeItem";
 import "./index.css";
 
 // Insira as props que faltam.
@@ -34,12 +34,10 @@ export const InfoArea = ({ currentMonth, onMonthChange }) => {
           Importe um ResumeItem paracada categoria: Receitas, Despesas e Balanço, declarando as props necessárias.
           No ResumeItem de Balanço, o value deve ser income-expense e a color fazer a verificação: income - expense < 0 ? "red" : "green"
         */}
-        <ResumeItem/>
-        <ResumeItem/>
-        <ResumeItem/>
+        <ResumeItem title="Receita" value={income} color={"green"}/>
+        <ResumeItem title="Despesa" value={expense} color={"red"}/>
+        <ResumeItem title="Balanço" value={income-expense} color={income - expense < 0 ? "red" : "green"}/>
       </div>
     </div>
   );
 };
-
-export default InfoArea;

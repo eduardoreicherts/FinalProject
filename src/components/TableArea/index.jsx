@@ -1,7 +1,7 @@
-import TableItem from "../TableItem";
+import {TableItem} from "../TableItem";
 import "./index.css";
 // Insira a prop list
-export const TableArea = () => {
+export const TableArea = ({list}) => {
   /*
         Crie uma table com className="table".
         Crie uma thead.
@@ -20,12 +20,10 @@ export const TableArea = () => {
         </tr>
       </thead>
       <tbody>
-        {List.map((key,value) => {
-          <TableItem/>
+        {list.map((value, index) => {
+          <TableItem item={value[index]}/>
         })}
       </tbody>
     </table>
   );
 };
-
-export default TableArea;

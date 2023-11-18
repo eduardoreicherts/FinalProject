@@ -23,18 +23,34 @@ export const InputArea = () => {
   */
   const handleaddEvent = () => {
     let errors = [];
-    if (errors.length <= 0 ) {
-      errors.push('erro');
-    } else if (errors.length > 0) {
+    if (dateField === '') {
+      errors.push("Preencha o campo Data");
+    } else if (categoryField === '') {
+      errors.push("Preencha o campo Categoria");
+    } else if (titleField === '') {
+      errors.push("Preencha o campo Titulo");
+    } else if (valueField === 0) {
+      errors.push("Preencha o campo Valor");
+    };
+    
+    if (errors.length > 0) {
       alert(errors.join("/n"))
     } else {
-      onAdd(categoryKeys);
-    }
-    clearField()
+      onAdd({
+        date: dateField,
+        category: categoryField,
+        title: titleField,
+        value: valueField
+      });
+      clearField()
+    };
   };
   // Crie uma função clearFields e limpe todos os campos do formulário.
   const clearField = () => {
-    
+    setDateField('');
+    setCategoryField('');
+    setTitleField('');
+    setValueField(0);
   };
 
   return (
@@ -85,5 +101,3 @@ export const InputArea = () => {
     </div>
   );
 };
-
-export default InputArea;

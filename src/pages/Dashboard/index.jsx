@@ -3,10 +3,10 @@ import "./index.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { categories } from "../../data/categories";
-import InfoArea from "../../components/InfoArea";
-import InputArea from "../../components/InputArea";
-import TableArea from "../../components/TableArea";
-import { getCurrentMonth } from "../../helpers/dateFilter";
+import {InfoArea} from "../../components/InfoArea";
+import {InputArea} from "../../components/InputArea";
+import {TableArea} from "../../components/TableArea";
+//import { getCurrentMonth } from "../../helpers/dateFilter";
 
 
 const Dashboard = () => {
@@ -17,7 +17,7 @@ const Dashboard = () => {
   // Crie um state para filteredList iniciando com um array vazio.
   const [filteredList, setFilteredList] = useState([]);
   // Crie um state para currentMonth iniciando com a função getCurrentMonth.
-  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth);
+  const [currentMonth, setCurrentMonth] = useState(null/*getCurrentMonth()*/);
   // Crie um state para income iniciando como 0.
   const [income, setIncome] = useState(0);
   // Crie um state para expense iniciando como 0.
@@ -63,7 +63,7 @@ const Dashboard = () => {
       Em seguida dê push em newList com o valor de item.
       Em seguida use setList com o valor de newList.
   */
-  const handleAddItem = (item) => {
+  const handleAddItem = ({item}) => {
     let newList = [...list];
     newList.push(item);
     setList(newList);
@@ -89,7 +89,7 @@ const Dashboard = () => {
       </div>
       <div className="body">
         {/* Insira a InfoArea e suas props */}
-        <InfoArea/>
+        <InfoArea income={income} expense={expense}/>
         {/* Insira a InputArea e sua prop */}
         <InputArea onAdd={handleAddItem}/>
         {/* Insira a TableArea e sua prop */}
