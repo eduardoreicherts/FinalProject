@@ -3,7 +3,7 @@ import "./index.css";
 import { categories } from "../../data/categories";
 
 // Insira a prop onAdd.
-export const InputArea = () => {
+export const InputArea = ({onAdd}) => {
   // Crie um state dateField iniciando com string vazia.
   const [dateField, setDateField] = useState('');
   // Crie um state categoryField iniciando com string vazia.

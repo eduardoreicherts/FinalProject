@@ -7,6 +7,7 @@ import {InfoArea} from "../../components/InfoArea";
 import {InputArea} from "../../components/InputArea";
 import {TableArea} from "../../components/TableArea";
 //import { getCurrentMonth } from "../../helpers/dateFilter";
+import { getCurrentMonth, filterListByMonth} from "../../helpers/dateFilter";
 
 
 const Dashboard = () => {
@@ -17,7 +18,7 @@ const Dashboard = () => {
   // Crie um state para filteredList iniciando com um array vazio.
   const [filteredList, setFilteredList] = useState([]);
   // Crie um state para currentMonth iniciando com a função getCurrentMonth.
-  const [currentMonth, setCurrentMonth] = useState(null/*getCurrentMonth()*/);
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth);
   // Crie um state para income iniciando como 0.
   const [income, setIncome] = useState(0);
   // Crie um state para expense iniciando como 0.
@@ -27,10 +28,12 @@ const Dashboard = () => {
       Dentro dele crie uma const monthList que recebe o valor da função filterListByMonth(list, currentMonth)
       Use setFilteredList com o valor da monthList.
   */
-  useEffect((list, currentMonth, setFilteredList) => {
+  useEffect(() => {
+    console.log(currentMonth)
     const monthList = filterListByMonth(list, currentMonth);
+    console.log(monthList)
     setFilteredList(monthList);
-  });
+  }, [list, currentMonth]);
   /*
     Crie um useEffect que tenha filteredList como dependência.
     Crie uma let incomeCount que recebe 0.
@@ -42,7 +45,7 @@ const Dashboard = () => {
     Use o setIncome com o valor de incomeCount.
     Use o setExpense com o valor de expenseCount.
   */
-  useEffect((filteredList) => {
+  useEffect(() => {
     let incomeCount = 0;
     let expenseCount = 0;
     for (let i in filteredList) {
@@ -54,7 +57,7 @@ const Dashboard = () => {
       setIncome(incomeCount);
       setExpense(expenseCount);
     };
-  });
+  }, [filteredList]);
   // Crie uma função handleMonthChange que recebe um newMonth. Dentro dela use o setCurrentMonth com o valor recebido na função
   const handleMonthChange = (newMonth) => {
     setCurrentMonth(newMonth);
@@ -89,11 +92,11 @@ const Dashboard = () => {
       </div>
       <div className="body">
         {/* Insira a InfoArea e suas props */}
-        <InfoArea income={income} expense={expense}/>
+        <InfoArea income={income} expense={expense} currentMonth={currentMonth} onMonthChange={handleMonthChange}/>
         {/* Insira a InputArea e sua prop */}
         <InputArea onAdd={handleAddItem}/>
         {/* Insira a TableArea e sua prop */}
-        <TableArea list={list}/>
+        <TableArea list={filteredList}/>
       </div>
     </div>
   );

@@ -13,10 +13,10 @@ export const TableArea = ({list}) => {
     <table className="table">
       <thead>
         <tr>
-          <th className="tableHeadColumn">Valor</th>
           <th className="tableHeadColumn">Data</th>
           <th className="tableHeadColumn">Categoria</th>
           <th className="tableHeadColumn">Título</th>
+          <th className="tableHeadColumn">Valor</th>
         </tr>
       </thead>
       <tbody>

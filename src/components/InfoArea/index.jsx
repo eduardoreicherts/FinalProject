@@ -3,7 +3,7 @@ import {ResumeItem} from "../ResumeItem";
 import "./index.css";
 
 // Insira as props que faltam.
-export const InfoArea = ({ currentMonth, onMonthChange }) => {
+export const InfoArea = ({ currentMonth, onMonthChange, income, expense }) => {
   const handlePrevMonth = () => {
     let [year, month] = currentMonth.split("-");
     let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1);
