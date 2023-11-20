@@ -36,13 +36,14 @@ export const InputArea = ({onAdd}) => {
     if (errors.length > 0) {
       alert(errors.join("/n"))
     } else {
-      onAdd({
-        date: dateField,
+      const data ={
+        date: new Date(dateField),
         category: categoryField,
         title: titleField,
         value: valueField
-      });
-      clearField()
+      }
+      onAdd(data);
+      clearField();
     };
   };
   // Crie uma função clearFields e limpe todos os campos do formulário.

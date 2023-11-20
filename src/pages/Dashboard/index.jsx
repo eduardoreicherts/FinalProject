@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { categories } from "../../data/categories";
 import {InfoArea} from "../../components/InfoArea";
 import {InputArea} from "../../components/InputArea";
@@ -18,7 +17,7 @@ const Dashboard = () => {
   // Crie um state para filteredList iniciando com um array vazio.
   const [filteredList, setFilteredList] = useState([]);
   // Crie um state para currentMonth iniciando com a função getCurrentMonth.
-  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth);
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
   // Crie um state para income iniciando como 0.
   const [income, setIncome] = useState(0);
   // Crie um state para expense iniciando como 0.
@@ -29,11 +28,10 @@ const Dashboard = () => {
       Use setFilteredList com o valor da monthList.
   */
   useEffect(() => {
-    console.log(currentMonth)
-    const monthList = filterListByMonth(list, currentMonth);
-    console.log(monthList)
+      const monthList = filterListByMonth(list, currentMonth);
+
     setFilteredList(monthList);
-  }, [list, currentMonth]);
+  }, [list, currentMonth, setFilteredList]);
   /*
     Crie um useEffect que tenha filteredList como dependência.
     Crie uma let incomeCount que recebe 0.
@@ -66,9 +64,11 @@ const Dashboard = () => {
       Em seguida dê push em newList com o valor de item.
       Em seguida use setList com o valor de newList.
   */
-  const handleAddItem = ({item}) => {
+  const handleAddItem = (item) => {
     let newList = [...list];
+
     newList.push(item);
+
     setList(newList);
   };
 

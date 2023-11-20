@@ -1,4 +1,4 @@
-import {TableItem} from "../TableItem";
+import TableItem from "../TableItem";
 import "./index.css";
 // Insira a prop list
 export const TableArea = ({list}) => {
@@ -9,6 +9,7 @@ export const TableArea = ({list}) => {
         Abaixo do fechamento do thead insira um tbody.
         Dentro do tbody faça um map em list e dentro do map chame o componente TasbleItem, passando as props necessárias.
       */
+     console.log(list)
   return (
     <table className="table">
       <thead>
@@ -20,8 +21,8 @@ export const TableArea = ({list}) => {
         </tr>
       </thead>
       <tbody>
-        {list.map((value, index) => {
-          <TableItem item={value[index]}/>
+        {list.map((value, index) => {  
+        return  <TableItem key={index} item={value}/>
         })}
       </tbody>
     </table>
