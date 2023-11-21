@@ -16,3 +16,5 @@ export const ResumeItem = ({value, title, color}) => {
     </div>
   );
 };
+
+//By Eduardo Reicherts

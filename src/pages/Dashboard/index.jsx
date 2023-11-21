@@ -9,11 +9,16 @@ import {TableArea} from "../../components/TableArea";
 import { getCurrentMonth, filterListByMonth} from "../../helpers/dateFilter";
 
 
+
 const Dashboard = () => {
+  const data = JSON.parse(localStorage.getItem("items")) || []
+      data.map((value, key) => {
+        return value.date = new Date(value.date);
+      });
   const navigate = useNavigate();
   const isAuthenticated = JSON.parse(localStorage.getItem("authenticated"));
   // Crie um state para list iniciando com um array vazio.
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(data);
   // Crie um state para filteredList iniciando com um array vazio.
   const [filteredList, setFilteredList] = useState([]);
   // Crie um state para currentMonth iniciando com a função getCurrentMonth.
@@ -28,8 +33,7 @@ const Dashboard = () => {
       Use setFilteredList com o valor da monthList.
   */
   useEffect(() => {
-      const monthList = filterListByMonth(list, currentMonth);
-
+      const monthList = filterListByMonth(list, currentMonth)
     setFilteredList(monthList);
   }, [list, currentMonth, setFilteredList]);
   /*
@@ -70,6 +74,7 @@ const Dashboard = () => {
     newList.push(item);
 
     setList(newList);
+    localStorage.setItem("items", JSON.stringify(newList));
   };
 
   const handleLogout = (e) => {
@@ -103,3 +108,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+//By Eduardo Reicherts

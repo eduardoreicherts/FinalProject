@@ -9,7 +9,6 @@ export const TableArea = ({list}) => {
         Abaixo do fechamento do thead insira um tbody.
         Dentro do tbody faça um map em list e dentro do map chame o componente TasbleItem, passando as props necessárias.
       */
-     console.log(list)
   return (
     <table className="table">
       <thead>
@@ -28,3 +27,5 @@ export const TableArea = ({list}) => {
     </table>
   );
 };
+
+//By Eduardo Reicherts

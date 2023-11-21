@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./index.css";
 import { categories } from "../../data/categories";
+import TextField from '@mui/material/TextField';
 
 // Insira a prop onAdd.
 export const InputArea = ({onAdd}) => {
@@ -37,7 +38,7 @@ export const InputArea = ({onAdd}) => {
       alert(errors.join("/n"))
     } else {
       const data ={
-        date: new Date(dateField),
+        date: new Date(dateField.concat("T00:00")),
         category: categoryField,
         title: titleField,
         value: valueField
@@ -59,7 +60,7 @@ export const InputArea = ({onAdd}) => {
       <label className="inputLabel">
         <div className="inputTitle">Data</div>
         {/*Crie um input do tipo date com value={dateField}. No onChange utilize (e) => setDateField(e.target.value).*/}
-        <input type="date" value={dateField} onChange={(e) => setDateField(e.target.value)} />
+        <TextField variant="outlined" type="date" value={dateField} onChange={(e) => setDateField(e.target.value)} />
       </label>
       <label className="inputLabel">
         <div className="inputTitle">Categoria</div>
@@ -87,7 +88,7 @@ export const InputArea = ({onAdd}) => {
       <label className="inputLabel">
         <div className="inputTitle">Título</div>
         {/*Crie um input  com value={titleField}. No onChange utilize (e) => setTitleField(e.target.value).*/}
-        <input type="text" value={titleField} onChange={(e) => setTitleField(e.target.value)} />
+        <TextField label="Título" variant="outlined" type="text" value={titleField} onChange={(e) => setTitleField(e.target.value)} />
       </label>
       <label className="inputLabel">
         <div className="inputTitle">Valor</div>
@@ -102,3 +103,6 @@ export const InputArea = ({onAdd}) => {
     </div>
   );
 };
+
+
+//By Eduardo Reicherts

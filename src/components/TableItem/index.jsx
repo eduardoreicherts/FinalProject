@@ -4,7 +4,6 @@ import "./index.css";
 
 // Insira a prop necessária.
 const TableItem = ({item}) => {
-  console.log('item')
   // Insira nos elementos td a className="tableColumn"
   return (
     <tr>
@@ -32,3 +31,5 @@ const TableItem = ({item}) => {
   );
 };
 export default TableItem
+
+//By Eduardo Reicherts
