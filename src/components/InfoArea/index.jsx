@@ -3,7 +3,7 @@ import {ResumeItem} from "../ResumeItem";
 import "./index.css";
 
 // Insira as props que faltam.
-export const InfoArea = ({ currentMonth, onMonthChange, income, expense }) => {
+export const InfoArea = ({ currentMonth, onMonthChange, income, expense, infoCount, filteredList }) => {
   const handlePrevMonth = () => {
     let [year, month] = currentMonth.split("-");
     let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1);
@@ -21,11 +21,11 @@ export const InfoArea = ({ currentMonth, onMonthChange, income, expense }) => {
   return (
     <div className="info-container">
       <div className="monthArea">
-        <div className="monthArrow" onClick={handlePrevMonth}>
+        <div className="monthArrow" onClick={() => {handlePrevMonth(); infoCount(filteredList)}}>
           ⬅️
         </div>
         <div className="monthTitle">{formatCurrentMonth(currentMonth)}</div>
-        <div className="monthArrow" onClick={handleNextMonth}>
+        <div className="monthArrow" onClick={() => {handleNextMonth(); infoCount(filteredList)}}>
           ➡️
         </div>
       </div>

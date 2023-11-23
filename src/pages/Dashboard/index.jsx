@@ -47,19 +47,26 @@ const Dashboard = () => {
     Use o setIncome com o valor de incomeCount.
     Use o setExpense com o valor de expenseCount.
   */
-  useEffect(() => {
+  const infoCount = (filteredList) => {
     let incomeCount = 0;
     let expenseCount = 0;
+    if(filteredList != 0) {
     for (let i in filteredList) {
       if (categories[filteredList[i].category].expense) {
-        expenseCount = filteredList[i].value;
+        expenseCount += filteredList[i].value;
       } else {
-        incomeCount = filteredList[i].value;
+        incomeCount += filteredList[i].value;
       };
+    }}
       setIncome(incomeCount);
       setExpense(expenseCount);
-    };
+    
+  };
+
+  useEffect(() => {
+    infoCount(filteredList);
   }, [filteredList]);
+
   // Crie uma função handleMonthChange que recebe um newMonth. Dentro dela use o setCurrentMonth com o valor recebido na função
   const handleMonthChange = (newMonth) => {
     setCurrentMonth(newMonth);
@@ -97,7 +104,7 @@ const Dashboard = () => {
       </div>
       <div className="body">
         {/* Insira a InfoArea e suas props */}
-        <InfoArea income={income} expense={expense} currentMonth={currentMonth} onMonthChange={handleMonthChange}/>
+        <InfoArea income={income} expense={expense} currentMonth={currentMonth} onMonthChange={handleMonthChange} infoCount={infoCount} filteredList={filteredList}/>
         {/* Insira a InputArea e sua prop */}
         <InputArea onAdd={handleAddItem}/>
         {/* Insira a TableArea e sua prop */}
