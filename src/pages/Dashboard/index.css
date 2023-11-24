@@ -5,14 +5,13 @@
 }
 
 body {
-  background: url(../../../public/images/background.png);
+  background: url(../../../public/images/background2.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .main {
-  height: 90vh;
-  margin: 10vh;
+  height: 100vh;
 }
 
 .header {

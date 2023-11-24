@@ -85,6 +85,7 @@ const Dashboard = () => {
 
     setList(newList);
     localStorage.setItem("items", JSON.stringify(newList));
+    infoCount(filteredList);
   };
 
   const handleLogout = (e) => {
