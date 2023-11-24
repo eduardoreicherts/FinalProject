@@ -90,7 +90,7 @@ export const InputArea = ({onAdd}) => {
       <label className="inputLabel">
         <div className="inputTitle">Título</div>
         {/*Crie um input  com value={titleField}. No onChange utilize (e) => setTitleField(e.target.value).*/}
-        <TextField className="inputs" label="Título" variant="outlined" type="text" value={titleField} onChange={(e) => setTitleField(e.target.value)} />
+        <TextField className="inputs" variant="outlined" type="text" value={titleField} onChange={(e) => setTitleField(e.target.value)} />
       </label>
       <label className="inputLabel">
         <div className="inputTitle">Valor</div>
