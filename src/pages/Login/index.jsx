@@ -44,7 +44,7 @@ const Login = () => {
       <h2 className="login-title">Login</h2>
       <TextField variant="outlined" sx={{margin: "10px"}} className="inputLogin" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
       <TextField variant="outlined" className="inputLogin" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      <Button variant="outlined" sx={{color: "white", border: "1px solid white", margin: "10px"}} className="login-button" onClick={handleLogin}>Send</Button>
+      <Button variant="outlined" sx={{color: "white", border: "1px solid white", margin: "10px"}} className="login-button" onClick={handleLogin}>Conectar</Button>
       <p>{message}</p>
     </div>
   );
