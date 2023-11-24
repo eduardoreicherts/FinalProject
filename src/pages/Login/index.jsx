@@ -40,8 +40,8 @@ const Login = () => {
     <div className="login-container">
       <img src="/images/logo.png" style={{ width: 50 }} />
       <h2 className="login-title">Login</h2>
-      <input className="inputLongin" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <input className="inputLongin" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+      <input className="inputLogin" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      <input className="inputLogin" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
       <button className="login-button" onClick={handleLogin}>Send</button>
       <p>{message}</p>
     </div>

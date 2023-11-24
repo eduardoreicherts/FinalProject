@@ -7,6 +7,7 @@ import {InputArea} from "../../components/InputArea";
 import {TableArea} from "../../components/TableArea";
 //import { getCurrentMonth } from "../../helpers/dateFilter";
 import { getCurrentMonth, filterListByMonth} from "../../helpers/dateFilter";
+import Button from '@mui/material/Button';
 
 
 
@@ -32,10 +33,12 @@ const Dashboard = () => {
       Dentro dele crie uma const monthList que recebe o valor da função filterListByMonth(list, currentMonth)
       Use setFilteredList com o valor da monthList.
   */
+
   useEffect(() => {
       const monthList = filterListByMonth(list, currentMonth)
-    setFilteredList(monthList);
+      setFilteredList(monthList);
   }, [list, currentMonth, setFilteredList]);
+
   /*
     Crie um useEffect que tenha filteredList como dependência.
     Crie uma let incomeCount que recebe 0.
@@ -95,12 +98,12 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
+    <div className="main">
       <div className="header">
         <h1 className="headerText">Sistema Financeiro</h1>
-        <button className="logout" onClick={handleLogout}>
+        <Button variant="outlined" sx={{position: "fixed", top: "10px", right: "10px", color: "white", border: "1px solid white"}} onClick={handleLogout}>
           Logout
-        </button>
+        </Button>
       </div>
       <div className="body">
         {/* Insira a InfoArea e suas props */}

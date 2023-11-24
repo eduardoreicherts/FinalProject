@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+
+* {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+  background: url(../../../public/images/background.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.main {
+  height: 90vh;
+  margin: 10vh;
+}
+
 .header {
-  background-color: darkblue;
   height: 150px;
   text-align: center;
 }
@@ -15,11 +31,4 @@
   margin: auto;
   max-width: 980px;
   margin-bottom: 50px;
-}
-
-.logout {
-  position: fixed;
-  right: 10px;
-  top: 10px;
-  background-color: darkblue;
 }

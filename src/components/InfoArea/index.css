@@ -1,6 +1,7 @@
+
 .info-container {
-  background-color: #ccc;
-  box-shadow: 0px 0px 5px #ccc;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(119, 119, 119);
   border-radius: 10px;
   padding: 20px;
   margin-top: -40px;
@@ -15,16 +16,21 @@
 }
 
 .monthArrow {
+  display: flex;
   width: 40px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-size: 25px;
   cursor: pointer;
+  color: white;
+  
 }
 
 .monthTitle {
   flex: 1;
   text-align: center;
-  color: #000;
+  color: white;
 }
 
 .resumeArea {

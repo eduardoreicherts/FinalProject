@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./index.css";
 import { categories } from "../../data/categories";
 import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
 // Insira a prop onAdd.
 export const InputArea = ({onAdd}) => {
@@ -60,45 +63,44 @@ export const InputArea = ({onAdd}) => {
       <label className="inputLabel">
         <div className="inputTitle">Data</div>
         {/*Crie um input do tipo date com value={dateField}. No onChange utilize (e) => setDateField(e.target.value).*/}
-        <TextField variant="outlined" type="date" value={dateField} onChange={(e) => setDateField(e.target.value)} />
+        <TextField className="inputs" variant="outlined" type="date" value={dateField} onChange={(e) => setDateField(e.target.value)} />
       </label>
       <label className="inputLabel">
         <div className="inputTitle">Categoria</div>
-        <select
+        <Select
+          id="demo-simple-select"
           className="select"
+          value={categoryField}
+          onChange={(e) => setCategoryField(e.target.value)}
           /*
              Insira no value o categoryField e no onChange  (e) => setCategoryField(e.target.value).
           */
-          value={categoryField}
-          onChange={(e) => setCategoryField(e.target.value)}
         >
-          <>
-            <option></option>
+            <MenuItem></MenuItem>
             {/*
             Crie um map em categoryKeys.
             Dentro do map insira a tag <option  key={index} value={key}></option>.
             Dentro da tag insira {categories[key].title}.
         */}
           {categoryKeys.map((key, index) => {
-            return (<option  key={index} value={key}>{categories[key].title}</option>);
+            return (<MenuItem  key={index} value={key}>{categories[key].title}</MenuItem>);
           })}
-          </>
-        </select>
+        </Select>
       </label>
       <label className="inputLabel">
         <div className="inputTitle">Título</div>
         {/*Crie um input  com value={titleField}. No onChange utilize (e) => setTitleField(e.target.value).*/}
-        <TextField label="Título" variant="outlined" type="text" value={titleField} onChange={(e) => setTitleField(e.target.value)} />
+        <TextField className="inputs" label="Título" variant="outlined" type="text" value={titleField} onChange={(e) => setTitleField(e.target.value)} />
       </label>
       <label className="inputLabel">
         <div className="inputTitle">Valor</div>
         {/*Crie um input do tipo number com value={valueField}. No onChange utilize (e) => setValueField(parseFloat(e.target.value)).*/}
-        <input type="number" value={valueField} onChange={(e) => setValueField(parseFloat(e.target.value))} />
+        <TextField className="inputs" type="number" value={valueField} onChange={(e) => setValueField(parseFloat(e.target.value))} />
       </label>
       <label className="inputLabel">
         <div>&nbsp;</div>
         {/* Crie um button para adicionar os valores. No onclick chame a função handleAddEvent*/}
-        <button onClick={handleaddEvent}>Add</button>
+        <Button variant="outlined" sx={{color: "white", border: "1px solid white"}} onClick={handleaddEvent}>Adicionar</Button>
       </label>
     </div>
   );
